@@ -132,7 +132,9 @@ const KnowYourDosha = () => {
 
   const handleSubmit = () => {
     if (answers.includes(0)) {
-      alert("Please answer all questions before submitting.");
+      alert(
+        "For accurate results, we request you to answer all the questions before submitting."
+      );
     } else {
       const dominantDosha = calculateDosha();
       setDosha(dominantDosha);
