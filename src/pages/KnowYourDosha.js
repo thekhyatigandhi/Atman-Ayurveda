@@ -131,10 +131,15 @@ const KnowYourDosha = () => {
   const [doshaDescription, setDoshaDescription] = useState("");
 
   const handleSubmit = () => {
-    const dominantDosha = calculateDosha();
-    setDosha(dominantDosha);
-    setDoshaDescription(doshaDescriptions[DOSHAS.indexOf(dominantDosha)]);
+    if (answers.includes(0)) {
+      alert("Please answer all questions before submitting.");
+    } else {
+      const dominantDosha = calculateDosha();
+      setDosha(dominantDosha);
+      setDoshaDescription(doshaDescriptions[DOSHAS.indexOf(dominantDosha)]);
+    }
   };
+
   return (
     <div>
       <h1>Know Your Dosha</h1>
