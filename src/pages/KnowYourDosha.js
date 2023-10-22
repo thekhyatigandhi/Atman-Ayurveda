@@ -108,13 +108,15 @@ const KnowYourDosha = () => {
     },
   ]);
 
-  const [answers, setAnswers] = useState(Array(questions.length).fill(0));
+  const [answers, setAnswers] = useState(Array(questions.length).fill(null)); // Use null for unanswered questions.
 
   const handleAnswerChange = (questionIndex, answerIndex) => {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = answerIndex;
     setAnswers(newAnswers);
   };
+
+  const isAllQuestionsAnswered = answers.every((answer) => answer !== null);
 
   const calculateDosha = () => {
     const doshaCounts = [0, 0, 0];
@@ -131,15 +133,14 @@ const KnowYourDosha = () => {
   const [doshaDescription, setDoshaDescription] = useState("");
 
   const handleSubmit = () => {
-    if (answers.includes(0)) {
-      alert(
-        "For accurate results, we request you to answer all the questions before submitting."
-      );
-    } else {
-      const dominantDosha = calculateDosha();
-      setDosha(dominantDosha);
-      setDoshaDescription(doshaDescriptions[DOSHAS.indexOf(dominantDosha)]);
+    if (!isAllQuestionsAnswered) {
+      alert("Please answer all questions before submitting.");
+      return;
     }
+
+    const dominantDosha = calculateDosha();
+    setDosha(dominantDosha);
+    setDoshaDescription(doshaDescriptions[DOSHAS.indexOf(dominantDosha)]);
   };
 
   return (
