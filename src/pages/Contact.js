@@ -52,12 +52,14 @@ export default function Contact() {
       <MDBCardBody>
         <MDBCardTitle>CONTACT DETAILS</MDBCardTitle>
         <MDBCardText>
-          Together, we'll bring added value to your company. Count on us to
-          provide prompt responses.
+          We'll bring added value to your life. Count on us to provide prompt
+          responses.
         </MDBCardText>
         <MDBCardText>
           Email us on{" "}
-          <a href="mailto:khyati296@gmail.com">khyati296@gmail.com</a>
+          <a href="mailto:aatmanaayurveda@gmail.com">
+            aatmanaayurveda@gmail.com
+          </a>
         </MDBCardText>
 
         <div className="contactMargin">
